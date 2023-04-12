@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"content="IE=edge">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website </title>
+    <link rel="stylesheet" href="styloo.css">
+    <script src="https://kit.fontawesome.com/984d871e9c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="logo.jpg" class="logo">
+            <ul>
+                <li><a href="header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    <div class="header-text">
+        <p> Website Developer</p>
+        <h1>Hi, I'm <span>Amandeep Singh</span><br> From Jammu</h1>
+        </div>
+    </div>
+</div>
+<!----------------about--------------> 
+<div id="about"> 
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+            <img src="about.jpg">
+            </div>
+        <div class="about-col-2">
+            <h1 class="sub-title">About Me</h1>
+            <p>Hi,My name is Amandeep singh and I am Persuing my BCA from Rayat Bahra University, Powered by Sunstone<p>
+        <div class="tab-titles">
+            <p class="tab-titles active-link">Education<br></p>
+           </div> 
+        <div class="tab-contents">
+           <ul>
+                <li><span>class 10th</span><br>From Kendriya Vidyalya NO.1 school Udhampur</li>
+                <li><span>class 12th</span><br>From NIOS Jammu</li>
+                <li><span> BCA</span><br>From Rayat Bahra University Mohali</li>
+            </ul>
+        </div>               
+       </div> 
+       <div id="skills">
+        <div class="container">
+            <h1 class="sub-title">My Skills</h1>
+            <div class="skills-list">
+                <div>
+                    <i class="fa-brands fa-github fa-beat-fade"></i>
+                    <h2>Github</h2>
+                    <p>It's an platform which allows you to   host your code . In Github there are many commands like git init, git commit and git status , git branch.</p>
+                    </div>
+                    <div>
+                    <i class="fa-solid fa-crop fa-beat-fade"></i>
+                    <h2>MongoDb</h2>
+                    <p>MongoDb  is a document database and there are some commands of Mongo like show dbs, use DATABASE_NAME, db.dropDatabase(),show collections.</p>
+                    </div>
+                    <div>
+                    <i class="fa-brands fa-uncharted fa-beat-fade"></i>
+                    <h2>Web Development</h2>
+                    <p>The tasks associated with creating, building , and maintaining websites and web applications that run online on a browser using languages like HTML , CSS , Javascript.</p>
+                </div>
+            </div>
+        </div>
+       </div>
+       <!------------subject--------->
+   <div id="subject">
+    <div class="container">
+        <h1 class="sub-title">My Subjects</h1>
+        <div class="subject-list">
+            <div class="subject">
+                <img src="Subject 1.jpg">
+                <div class="layer">
+                    <h3>Data Structures and Algorithms</h3>
+                </div>
+                 </div>
+
+                <div class="subject">
+                    <img src="Subject 2.jpg">
+                    <div class="layer">
+                    <h3>SQL and Data Modeling for the Web</h3>
+                </div>
+                </div>
+
+                <div class="subject">
+                    <img src="Subject 3.jpg">
+                    <div class="layer">
+                        <h3>Design & Web Technologies</h3>
+                        </div>
+                
+            </div>
+        </div>
+    </div>
+   </div>
+    <!------------------Contact----------------------> 
+    <div id="contact">
+        <div class="container">
+              <div class="row">
+                   <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class= "fa-solid fa-paper-plane"></i>jattsaab5518@gmail.com</p>
+                        <p><i class= "fa-solid fa-phone"></i>9797994384</p> 
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/profile.php?id=100089115933134"><i class="fab fa-facebook"></i></a>
+                            <a href="https://www.linkedin.com/in/amandeep-singh-422013252"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://instagram.com/amandeep28901?igshid=OTJhZDVkZWE="><i class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/Amandeep0414?t=eXXF7pGh-aseVtLOfTDJMg&s=09"><i class="fab fa-twitter-square"></i></a>
+                        </div>    
+                   </div> 
+              </div>              
+        <div class="contact-right">
+        <form name="submit-to-google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your email" required>
+            <textarea name="Message" rows="6" placeholder="Your Meassage"></textarea>
+            <button type="submit" class="btn btn">Submit</button>
+        </form> 
+        <span id="msg"></span></div>
+      </div>
+      </div>   
+     
+     </div>
+      </div>
+    </div>
+   </div>
+
+<script>
+    const scriptURL ='https://script.google.com/macros/s/AKfycbw4PXVYwBQ8NfqUapJyRTjjHkP45WJxfVA8ez-Jpnu4sqNYkI1pK0j0zCagixRAqM4/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg =document.getElementById("msg")
+
+    form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response =>{
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){
+               msg.innerHTML=""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
